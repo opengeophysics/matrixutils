@@ -5,6 +5,10 @@ matrixutils
     :target: https://pypi.python.org/pypi/discretize
     :alt: Latest PyPI version
 
+.. image:: https://readthedocs.org/projects/matrixutils/badge/?version=latest
+    :target: http://matrixutils.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://img.shields.io/github/license/OpenGeopyhsics/matrixutils.svg
     :target: https://github.com/OpenGeophysics/matrixutils/blob/master/LICENSE
     :alt: MIT license
