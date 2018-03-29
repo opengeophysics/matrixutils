@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
-"""discretize
+"""matrixutils
 
 Discretization tools for finite volume and inverse problems.
 """
@@ -50,31 +50,29 @@ def configuration(parent_package='', top_path=None):
                        delegate_options_to_subpackages=True,
                        quiet=True)
 
-    config.add_subpackage('discretize')
+    config.add_subpackage('matrixutils')
 
     return config
 
 setup(
-    name="discretize",
-    version="0.1.18",
+    name="matrixutils",
+    version="0.0.1",
     install_requires=[
         'numpy>=1.7',
         'scipy>=0.13',
         'cython',
         'ipython',
         'matplotlib',
-        'pymatsolver>=0.1.2',
         'properties>=0.3.6b0',
-        'vectormath'
     ],
-    author="Rowan Cockett",
-    author_email="rowanc1@gmail.com",
-    description="Discretization tools for finite volume and inverse problems",
+    author="OpenGeophysics Developers",
+    author_email="admin@simpeg.xyz",
+    description="utilities for working with matrices as linear operators in python",
     long_description=LONG_DESCRIPTION,
     license="MIT",
     keywords="finite volume, discretization, pde, ode",
     url="http://simpeg.xyz/",
-    download_url="http://github.com/simpeg/discretize",
+    download_url="https://github.com/OpenGeophysics/matrixutils",
     classifiers=CLASSIFIERS,
     platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
     use_2to3=False,

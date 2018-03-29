@@ -5,9 +5,9 @@ base_path = os.path.abspath(os.path.dirname(__file__))
 
 def configuration(parent_package='', top_path=None):
     from numpy.distutils.misc_util import Configuration, get_numpy_include_dirs
-    config = Configuration('discretize', parent_package, top_path)
+    config = Configuration('matrixutils', parent_package, top_path)
 
-    ext = 'TreeUtils'
+    ext = 'interputils_cython'
     try:
         from Cython.Build import cythonize
         cythonize(os.path.join(base_path, ext+'.pyx'))
@@ -20,5 +20,4 @@ def configuration(parent_package='', top_path=None):
         include_dirs=[get_numpy_include_dirs()]
     )
 
-    config.add_subpackage('utils')
     return config

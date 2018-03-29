@@ -1,5 +1,5 @@
-discretize
-==========
+matrixutils
+===========
 
 .. image:: https://img.shields.io/pypi/v/discretize.svg
     :target: https://pypi.python.org/pypi/discretize
@@ -22,62 +22,8 @@ discretize
     :alt: codacy status
 
 
-**discretize** - A python package for finite volume discretization. 
+**matrixutils** - A python package for finite volume discretization.
 
-The vision is to create a package for finite volume simulation with a
-focus on large scale inverse problems.
-This package has the following features:
-
-* modular with respect to the spacial discretization
-* built with the inverse problem in mind
-* supports 1D, 2D and 3D problems
-* access to sparse matrix operators
-* access to derivatives to mesh variables
-
-.. image:: https://raw.githubusercontent.com/simpeg/figures/master/finitevolume/cell-anatomy-tensor.png
-
-Currently, discretize supports:
-
-* Tensor Meshes (1D, 2D and 3D)
-* Cylindrically Symmetric Meshes
-* QuadTree and OcTree Meshes (2D and 3D)
-* Logically Rectangular Meshes (2D and 3D)
-
-Installing
-----------
-
-**discretize** is on pypi
-
-.. code::
-
-    pip install discretize
-    
-To install from source
-
-.. code:: 
-
-    git clone https://github.com/simpeg/discretize.git
-    python setup.py install
-
-Citing discretize
------------------
-
-Please cite the SimPEG paper when using discretize in your work:
-
-
-    Cockett, R., Kang, S., Heagy, L. J., Pidlisecky, A., & Oldenburg, D. W. (2015). SimPEG: An open source framework for simulation and gradient based parameter estimation in geophysical applications. Computers & Geosciences.
-
-**BibTex:**
-
-.. code::
-
-    @article{cockett2015simpeg,
-      title={SimPEG: An open source framework for simulation and gradient based parameter estimation in geophysical applications},
-      author={Cockett, Rowan and Kang, Seogi and Heagy, Lindsey J and Pidlisecky, Adam and Oldenburg, Douglas W},
-      journal={Computers \& Geosciences},
-      year={2015},
-      publisher={Elsevier}
-    }
 
 Links
 -----
@@ -86,16 +32,16 @@ Website:
 http://simpeg.xyz
 
 Documentation:
-http://discretize.simpeg.xyz
+Coming soon...
 
 Code:
 https://github.com/simpeg/discretize
 
 Tests:
-https://travis-ci.org/simpeg/discretize
+Coming soon...
 
 Bugs & Issues:
-https://github.com/simpeg/discretize/issues
+https://github.com/OpenGeophysics/matrixutils/issues
 
 Questions:
 https://groups.google.com/forum/#!forum/simpeg

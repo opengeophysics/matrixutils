@@ -2,39 +2,16 @@ from __future__ import print_function
 import unittest
 import numpy as np
 import scipy.sparse as sp
-from discretize.utils import (
+from matrixutils import (
     sdiag, sub2ind, ndgrid, mkvc, isScalar,
     inv2X2BlockDiagonal, inv3X3BlockDiagonal,
     invPropertyTensor, makePropertyTensor, indexCube,
     ind2sub, asArray_N_x_Dim, TensorType, Zero, Identity,
     ExtractCoreMesh
 )
-from discretize.Tests import checkDerivative
-import discretize
 import sys
 
 TOL = 1e-8
-
-
-class TestCheckDerivative(unittest.TestCase):
-
-    def test_simplePass(self):
-        def simplePass(x):
-            return np.sin(x), sdiag(np.cos(x))
-        passed = checkDerivative(simplePass, np.random.randn(5), plotIt=False)
-        self.assertTrue(passed, True)
-
-    def test_simpleFunction(self):
-        def simpleFunction(x):
-            return np.sin(x), lambda xi: sdiag(np.cos(x))*xi
-        passed = checkDerivative(simpleFunction, np.random.randn(5), plotIt=False)
-        self.assertTrue(passed, True)
-
-    def test_simpleFail(self):
-        def simpleFail(x):
-            return np.sin(x), -sdiag(np.cos(x))
-        passed = checkDerivative(simpleFail, np.random.randn(5), plotIt=False)
-        self.assertTrue(not passed, True)
 
 
 class TestSequenceFunctions(unittest.TestCase):
@@ -129,82 +106,6 @@ class TestSequenceFunctions(unittest.TestCase):
         Z3 = B*A - sp.identity(15)
 
         self.assertTrue(np.linalg.norm(Z3.todense().ravel(), 2) < TOL)
-
-    def test_invPropertyTensor2D(self):
-        M = discretize.TensorMesh([6, 6])
-        a1 = np.random.rand(M.nC)
-        a2 = np.random.rand(M.nC)
-        a3 = np.random.rand(M.nC)
-        prop1 = a1
-        prop2 = np.c_[a1, a2]
-        prop3 = np.c_[a1, a2, a3]
-
-        for prop in [4, prop1, prop2, prop3]:
-            b = invPropertyTensor(M, prop)
-            A = makePropertyTensor(M, prop)
-            B1 = makePropertyTensor(M, b)
-            B2 = invPropertyTensor(M, prop, returnMatrix=True)
-
-            Z = B1*A - sp.identity(M.nC*2)
-            self.assertTrue(np.linalg.norm(Z.todense().ravel(), 2) < TOL)
-            Z = B2*A - sp.identity(M.nC*2)
-            self.assertTrue(np.linalg.norm(Z.todense().ravel(), 2) < TOL)
-
-    def test_TensorType2D(self):
-        M = discretize.TensorMesh([6, 6])
-        a1 = np.random.rand(M.nC)
-        a2 = np.random.rand(M.nC)
-        a3 = np.random.rand(M.nC)
-        prop1 = a1
-        prop2 = np.c_[a1, a2]
-        prop3 = np.c_[a1, a2, a3]
-
-        for ii, prop in enumerate([4, prop1, prop2, prop3]):
-            self.assertTrue(TensorType(M, prop) == ii)
-
-        self.assertRaises(Exception, TensorType, M, np.c_[a1, a2, a3, a3])
-        self.assertTrue(TensorType(M, None) == -1)
-
-    def test_TensorType3D(self):
-        M = discretize.TensorMesh([6, 6, 7])
-        a1 = np.random.rand(M.nC)
-        a2 = np.random.rand(M.nC)
-        a3 = np.random.rand(M.nC)
-        a4 = np.random.rand(M.nC)
-        a5 = np.random.rand(M.nC)
-        a6 = np.random.rand(M.nC)
-        prop1 = a1
-        prop2 = np.c_[a1, a2, a3]
-        prop3 = np.c_[a1, a2, a3, a4, a5, a6]
-
-        for ii, prop in enumerate([4, prop1, prop2, prop3]):
-            self.assertTrue(TensorType(M, prop) == ii)
-
-        self.assertRaises(Exception, TensorType, M, np.c_[a1, a2, a3, a3])
-        self.assertTrue(TensorType(M, None) == -1)
-
-    def test_invPropertyTensor3D(self):
-        M = discretize.TensorMesh([6, 6, 6])
-        a1 = np.random.rand(M.nC)
-        a2 = np.random.rand(M.nC)
-        a3 = np.random.rand(M.nC)
-        a4 = np.random.rand(M.nC)
-        a5 = np.random.rand(M.nC)
-        a6 = np.random.rand(M.nC)
-        prop1 = a1
-        prop2 = np.c_[a1, a2, a3]
-        prop3 = np.c_[a1, a2, a3, a4, a5, a6]
-
-        for prop in [4, prop1, prop2, prop3]:
-            b = invPropertyTensor(M, prop)
-            A = makePropertyTensor(M, prop)
-            B1 = makePropertyTensor(M, b)
-            B2 = invPropertyTensor(M, prop, returnMatrix=True)
-
-            Z = B1*A - sp.identity(M.nC*3)
-            self.assertTrue(np.linalg.norm(Z.todense().ravel(), 2) < TOL)
-            Z = B2*A - sp.identity(M.nC*3)
-            self.assertTrue(np.linalg.norm(Z.todense().ravel(), 2) < TOL)
 
     def test_isScalar(self):
         self.assertTrue(isScalar(1.))
@@ -381,47 +282,6 @@ class TestZero(unittest.TestCase):
         assert o*z == 0
         assert o*z + o == 1
         assert o-z == 1
-
-
-class TestMeshUtils(unittest.TestCase):
-
-    def test_ExtractCoreMesh(self):
-
-        # 1D Test on TensorMesh
-        meshtest1d = discretize.TensorMesh([[(50., 10)]])
-        xzlim1d = np.r_[[[0., 250.]]]
-        actind1d, meshCore1d = ExtractCoreMesh(xzlim1d, meshtest1d)
-
-        assert len(actind1d) == meshtest1d.nC
-        assert meshCore1d.nC == np.count_nonzero(actind1d)
-        assert meshCore1d.vectorCCx.min() > xzlim1d[0, :].min()
-        assert meshCore1d.vectorCCx.max() < xzlim1d[0, :].max()
-
-        # 2D Test on TensorMesh
-        meshtest2d = discretize.TensorMesh([[(50., 10)], [(25., 10)]])
-        xzlim2d = xyzlim = np.r_[[[0., 200.], [0., 200.]]]
-        actind2d, meshCore2d = ExtractCoreMesh(xzlim2d, meshtest2d)
-
-        assert len(actind2d) == meshtest2d.nC
-        assert meshCore2d.nC == np.count_nonzero(actind2d)
-        assert meshCore2d.vectorCCx.min() > xzlim2d[0, :].min()
-        assert meshCore2d.vectorCCx.max() < xzlim2d[0, :].max()
-        assert meshCore2d.vectorCCy.min() > xzlim2d[1, :].min()
-        assert meshCore2d.vectorCCy.max() < xzlim2d[1, :].max()
-
-        # 3D Test on TensorMesh
-        meshtest3d = discretize.TensorMesh([[(50., 10)], [(25., 10)], [(5., 40)]])
-        xzlim3d = np.r_[[[0., 250.], [0., 200.], [0., 150]]]
-        actind3d, meshCore3d = ExtractCoreMesh(xzlim3d, meshtest3d)
-
-        assert len(actind3d) == meshtest3d.nC
-        assert meshCore3d.nC == np.count_nonzero(actind3d)
-        assert meshCore3d.vectorCCx.min() > xzlim3d[0, :].min()
-        assert meshCore3d.vectorCCx.max() < xzlim3d[0, :].max()
-        assert meshCore3d.vectorCCy.min() > xzlim3d[1, :].min()
-        assert meshCore3d.vectorCCy.max() < xzlim3d[1, :].max()
-        assert meshCore3d.vectorCCz.min() > xzlim3d[2, :].min()
-        assert meshCore3d.vectorCCz.max() < xzlim3d[2, :].max()
 
 
 if __name__ == '__main__':

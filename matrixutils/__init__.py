@@ -15,3 +15,9 @@ from .meshutils import (
 from .curvutils import volTetra, faceInfo, indexCube
 from .interputils import interpmat
 from .coordutils import rotatePointsFromNormals, rotationMatrixFromNormals
+
+
+__version__   = '0.0.1'
+__author__    = 'SimPEG Team'
+__license__   = 'MIT'
+__copyright__ = '2013 - 2018, SimPEG Developers, http://simpeg.xyz'
