@@ -19,7 +19,7 @@ install:
   - python setup.py install
 
 script:
-  - nosetests tests --with-cov --cov discretize --cov-config .coveragerc -v -s;
+  - nosetests tests --with-cov --cov matrixutils --cov-config .coveragerc -v -s;
 
 after_success:
 

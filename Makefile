@@ -9,14 +9,14 @@ build_cython:
 	python setup.py build_ext -i cython
 
 coverage:
-	nosetests --logging-level=INFO --with-coverage --cover-package=discretize --cover-html
+	nosetests --logging-level=INFO --with-coverage --cover-package=matrixutils --cover-html
 	open cover/index.html
 
 lint:
-	pylint --output-format=html discretize > pylint.html
+	pylint --output-format=html matrixutils > pylint.html
 
 graphs:
-	pyreverse -my -A -o pdf -p discretize discretize/**.py discretize/**/**.py
+	pyreverse -my -A -o pdf -p matrixutils matrixutils/**.py matrixutils/**/**.py
 
 tests:
 	nosetests --logging-level=INFO
