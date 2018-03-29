@@ -15,6 +15,6 @@ from .coordutils import rotatePointsFromNormals, rotationMatrixFromNormals
 
 
 __version__   = '0.0.1'
-__author__    = 'SimPEG Team'
+__author__    = 'OpenGeophysics Team'
 __license__   = 'MIT'
-__copyright__ = '2013 - 2018, SimPEG Developers, http://simpeg.xyz'
+__copyright__ = '2013 - 2018, OpenGeophysics Developers, http://simpeg.xyz'
