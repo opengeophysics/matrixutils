@@ -25,7 +25,33 @@ matrixutils
     :target: https://www.codacy.com/app/lindseyheagy/matrixutils?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opengeophysics/matrixutils&amp;utm_campaign=Badge_Gradetus
     :alt: Code quality
 
-**matrixutils** - A python package for finite volume discretization.
+**matrixutils** is a python package that includes utilities for
+working with matrices as linear operators in python.
+
+
+Installation
+------------
+
+.. code:: shell
+
+    pip install matrixutils
+
+To install as a developer
+
+.. code:: shell
+
+    git clone https://github.com/OpenGeophysics/matrixutils.git
+    cd matrixutils
+    python setup.py install
+
+or to build the installation in-place:
+
+.. code:: shell
+
+    git clone https://github.com/OpenGeophysics/matrixutils.git
+    cd matrixutils
+    python setup.py install build_ext --inplace
+
 
 
 Links
@@ -35,7 +61,7 @@ Website:
 http://simpeg.xyz
 
 Documentation:
-Coming soon...
+http://matrixutils.readthedocs.io
 
 Code:
 https://github.com/OpenGeophysics/matrixutils
