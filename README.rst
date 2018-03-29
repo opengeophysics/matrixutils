@@ -1,8 +1,8 @@
 matrixutils
 ===========
 
-.. image:: https://img.shields.io/pypi/v/discretize.svg
-    :target: https://pypi.python.org/pypi/discretize
+.. image:: https://img.shields.io/pypi/v/matrixutils.svg
+    :target: https://pypi.python.org/pypi/matrixutils
     :alt: Latest PyPI version
 
 .. image:: https://readthedocs.org/projects/matrixutils/badge/?version=latest
@@ -25,8 +25,17 @@ matrixutils
     :target: https://www.codacy.com/app/lindseyheagy/matrixutils?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opengeophysics/matrixutils&amp;utm_campaign=Badge_Gradetus
     :alt: Code quality
 
+
+Why
+---
+
 **matrixutils** is a python package that includes utilities for
-working with matrices as linear operators in python.
+working with matrices as linear operators in python. It includes utilities
+for wrapping and unwrapping matrices and vectors, tools for creating matrices,
+and operators `Zero` and `Identity` which improve code efficiency without
+sacrificing readability.
+
+It is used by `discretize <https://github.com/simpeg/discretize>`_ and `SimPEG <https://github.com/simpeg/simpeg>`_.
 
 
 Installation
