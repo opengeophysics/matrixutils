@@ -61,7 +61,6 @@ setup(
         'numpy>=1.7',
         'scipy>=0.13',
         'cython',
-        'ipython',
         'matplotlib',
         'properties>=0.3.6b0',
     ],
