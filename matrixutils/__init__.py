@@ -8,10 +8,7 @@ from .matutils import (
     Identity
 )
 from .codeutils import (isScalar, asArray_N_x_Dim)
-from .meshutils import (
-    exampleLrmGrid, meshTensor, closestPoints, ExtractCoreMesh,
-    random_model
-)
+from .meshutils import meshTensor
 from .curvutils import volTetra, faceInfo, indexCube
 from .interputils import interpmat
 from .coordutils import rotatePointsFromNormals, rotationMatrixFromNormals

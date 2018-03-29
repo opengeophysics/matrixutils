@@ -1,41 +1,28 @@
-Utilities
-*********
-
-.. automodule:: discretize.utils
-    :members:
-    :undoc-members:
-
 Matrix Utilities
 ================
 
-.. automodule:: discretize.utils.matutils
+.. automodule:: matrixutils.matutils
     :members:
     :undoc-members:
 
 Curv Utilities
 ==============
 
-.. automodule:: discretize.utils.curvutils
+.. automodule:: matrixutils.curvutils
     :members:
     :undoc-members:
 
 Mesh Utilities
 ==============
 
-.. automodule:: discretize.utils.meshutils
+.. automodule:: matrixutils.meshutils
     :members:
     :undoc-members:
 
 Interpolation Utilities
 =======================
 
-.. automodule:: discretize.utils.interputils
+.. automodule:: matrixutils.interputils
     :members:
     :undoc-members:
 
-Testing
-=======
-
-.. automodule:: discretize.Tests
-    :members:
-    :undoc-members:

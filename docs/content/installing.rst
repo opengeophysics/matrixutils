@@ -10,7 +10,6 @@ Dependencies
 - NumPy 1.8 (or greater)
 - SciPy 0.13 (or greater)
 - matplotlib 1.3 (or greater)
-- pymatsolver 0.1.2 (or greater)
 - Cython 0.20 (or greater)
 - properties[math]
 
