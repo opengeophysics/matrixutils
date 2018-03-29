@@ -7,7 +7,6 @@ from matrixutils import (
     inv2X2BlockDiagonal, inv3X3BlockDiagonal,
     invPropertyTensor, makePropertyTensor, indexCube,
     ind2sub, asArray_N_x_Dim, TensorType, Zero, Identity,
-    ExtractCoreMesh
 )
 import sys
 

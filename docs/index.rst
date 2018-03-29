@@ -1,14 +1,6 @@
 .. include:: ../README.rst
 
 
-About matrixutils
-*****************
-
-.. toctree::
-   :maxdepth: 2
-
-   content/installing
-
 Examples
 ********
 
@@ -18,8 +10,8 @@ Examples
    auto_examples/index
 
 
-Utility Codes
-*************
+API
+***
 
 .. toctree::
    :maxdepth: 3
