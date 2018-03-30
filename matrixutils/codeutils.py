@@ -8,9 +8,14 @@ else:
 
 
 def isScalar(f):
+    """
+    Check if an input is a scalar
+    """
     if type(f) in scalarTypes:
         return True
-    elif isinstance(f, np.ndarray) and f.size == 1 and type(f[0]) in scalarTypes:
+    elif (
+        isinstance(f, np.ndarray) and f.size == 1 and type(f[0]) in scalarTypes
+    ):
         return True
     return False
 
@@ -25,6 +30,8 @@ def asArray_N_x_Dim(pts, dim):
         elif len(pts.shape) == 1:
             pts = pts[:, np.newaxis]
 
-        assert pts.shape[1] == dim, "pts must be a column vector of shape (nPts, {0:d}) not ({1:d}, {2:d})".format(*((dim,)+pts.shape))
-
+        assert pts.shape[1] == dim, (
+            "pts must be a column vector of shape (nPts, {0:d}) not "
+            "({1:d}, {2:d})".format(*((dim,)+pts.shape))
+        )
         return pts
