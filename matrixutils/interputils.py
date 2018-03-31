@@ -29,7 +29,6 @@ def interpmat(locs, x, y=None, z=None):
 
     .. plot::
 
-        import discretize
         import numpy as np
         import matplotlib.pyplot as plt
         locs = np.random.rand(50)*0.8+0.1
