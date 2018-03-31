@@ -32,14 +32,6 @@ def meshTensor(value):
     refers to the increase factor, if this number
     is negative this section of the tensor is flipped right-to-left.
 
-    .. plot::
-
-        import discretize
-        tx = [(10.0, 10, -1.3), (10.0, 40), (10.0, 10, 1.3)]
-        ty = [(10.0, 10, -1.3), (10.0, 40)]
-        M = discretize.TensorMesh([tx, ty])
-        M.plotGrid(showIt=True)
-
     """
     if type(value) is not list:
         raise Exception('meshTensor must be a list of scalars and tuples.')

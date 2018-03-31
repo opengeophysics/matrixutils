@@ -5,8 +5,7 @@ import scipy.sparse as sp
 from matrixutils import (
     sdiag, sub2ind, ndgrid, mkvc, isScalar,
     inv2X2BlockDiagonal, inv3X3BlockDiagonal,
-    invPropertyTensor, makePropertyTensor, indexCube,
-    ind2sub, asArray_N_x_Dim, TensorType, Zero, Identity,
+    indexCube, ind2sub, asArray_N_x_Dim, Zero, Identity,
 )
 import sys
 
