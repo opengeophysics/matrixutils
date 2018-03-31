@@ -16,7 +16,7 @@ env:
 
 install:
   - pip install -r requirements_dev.txt
-  - python setup.py install
+  - python setup.py install build_ext --inplace
 
 script:
   - nosetests tests --with-cov --cov matrixutils --cov-config .coveragerc -v -s;
