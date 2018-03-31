@@ -49,7 +49,7 @@ def sdiag(h):
 
 
 def sdInv(M):
-    "Inverse of a sparse diagonal matrix"
+    """Inverse of a sparse diagonal matrix"""
     return sdiag(1.0 / M.diagonal())
 
 
@@ -297,6 +297,9 @@ def inv2X2BlockDiagonal(a11, a12, a21, a22, returnMatrix=True):
 
 
 class Zero(object):
+    """
+    An efficient zero object.
+    """
 
     __numpy_ufunc__ = True
     __array_ufunc__ = None
@@ -373,6 +376,9 @@ class Zero(object):
 
 
 class Identity(object):
+    """
+    An efficient identity object.
+    """
 
     __numpy_ufunc__ = True
     __array_ufunc__ = None

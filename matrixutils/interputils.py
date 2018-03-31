@@ -36,7 +36,7 @@ def interpmat(locs, x, y=None, z=None):
         x = np.linspace(0, 1, 7)
         dense = np.linspace(0, 1, 200)
         fun = lambda x: np.cos(2*np.pi*x)
-        Q = discretize.utils.interpmat(locs, x)
+        Q = matrixutils.interpmat(locs, x)
         plt.plot(x, fun(x), 'bs-')
         plt.plot(dense, fun(dense), 'y:')
         plt.plot(locs, Q*fun(x), 'mo')
