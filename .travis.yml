@@ -16,7 +16,7 @@ env:
 
 install:
   - pip install -r requirements_dev.txt
-  - pythin setup.py install
+  - python setup.py install
   - make build
 
 script:
