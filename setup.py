@@ -2,7 +2,7 @@
 from __future__ import print_function
 """matrixutils
 
-Discretization tools for finite volume and inverse problems.
+Utilities for working with matrices as linear operators
 """
 
 from setuptools import find_packages
@@ -15,10 +15,6 @@ except Exception:
         "If you use conda, `conda install numpy` "
         "or you can use pip, `pip install numpy`"
     )
-
-import os
-import sys
-import numpy
 
 
 CLASSIFIERS = [
@@ -54,6 +50,7 @@ def configuration(parent_package='', top_path=None):
 
     return config
 
+
 setup(
     name="matrixutils",
     version="0.0.2",
@@ -64,14 +61,14 @@ setup(
         'matplotlib',
         'properties>=0.3.6b0',
     ],
-    author="OpenGeophysics Developers",
+    author="Open Geophysics Developers",
     author_email="admin@simpeg.xyz",
-    description="utilities for working with matrices as linear operators in python",
+    description="Utilities for working with matrices as linear operators",
     long_description=LONG_DESCRIPTION,
     license="MIT",
     keywords="finite volume, discretization, pde, ode",
     url="http://simpeg.xyz/",
-    download_url="https://github.com/OpenGeophysics/matrixutils",
+    download_url="https://github.com/opengeophysics/matrixutils",
     classifiers=CLASSIFIERS,
     platforms=["Windows", "Linux", "Solaris", "Mac OS-X", "Unix"],
     use_2to3=False,
