@@ -1,24 +1,5 @@
 from __future__ import print_function, division
 import numpy as np
-import sys
-if sys.version_info < (3,):
-    scalarTypes = [float, int, long, np.float_, np.int_]
-else:
-    scalarTypes = [float, int, np.float_, np.int_]
-
-
-def isScalar(f):
-    """
-    Check if an input is a scalar
-    """
-    if type(f) in scalarTypes:
-        return True
-    elif (
-        isinstance(f, np.ndarray) and f.size == 1 and type(f[0]) in scalarTypes
-    ):
-        return True
-    return False
-
 
 def asArray_N_x_Dim(pts, dim):
         if type(pts) == list:

@@ -6,7 +6,7 @@ from .matutils import (
     inv3X3BlockDiagonal, inv2X2BlockDiagonal,
     Zero, Identity
 )
-from .codeutils import (isScalar, asArray_N_x_Dim)
+from .codeutils import asArray_N_x_Dim
 from .meshutils import meshTensor
 from .curvutils import volTetra, faceInfo, indexCube
 from .interputils import interpmat

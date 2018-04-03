@@ -1,13 +1,4 @@
 import numpy as np
-import scipy.sparse as sp
-
-from .codeutils import isScalar
-
-import sys
-if sys.version_info < (3,):
-    num_types = [int, long, float]
-else:
-    num_types = [int, float]
 
 
 def meshTensor(value):
@@ -38,7 +29,7 @@ def meshTensor(value):
 
     proposed = []
     for v in value:
-        if isScalar(v):
+        if np.isscalar(v):
             proposed += [float(v)]
         elif type(v) is tuple and len(v) == 2:
             proposed += [float(v[0])]*int(v[1])
@@ -53,5 +44,3 @@ def meshTensor(value):
             raise Exception('meshTensor must contain only scalars and len(2) or len(3) tuples.')
 
     return np.array(proposed)
-
-
