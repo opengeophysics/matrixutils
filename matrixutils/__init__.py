@@ -13,7 +13,7 @@ from .interputils import interpmat
 from .coordutils import rotatePointsFromNormals, rotationMatrixFromNormals
 
 
-__version__   = '0.0.2'
+__version__   = '0.0.3b0'
 __author__    = 'OpenGeophysics Team'
 __license__   = 'MIT'
 __copyright__ = '2013 - 2018, OpenGeophysics Developers, http://simpeg.xyz'
